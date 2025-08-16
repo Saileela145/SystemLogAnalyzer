@@ -15,11 +15,17 @@ A Python-based tool to analyze Linux system logs, flag anomalies (ERROR, WARNING
 
 ## 📂 Project Structure  
 SystemLogAnalyzer/
+
 │── README.md # Project documentation
+
 │── log_flagger.py # Main Python script
+
 │── flagged_logs.csv # Flagged log entries (output)
+
 │── severity_counts.png # Bar chart of severity
+
 │── severity_pie.png # Pie chart of severity
+
 │── top_processes.png # Top processes chart
 
 ---
