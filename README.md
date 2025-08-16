@@ -36,6 +36,7 @@ cd SystemLogAnalyzer
 python3 log_flagger.py
 ```
 3. **Check Outputs**
+``` 
 flagged_logs.csv → contains flagged anomalies
 
 severity_counts.png → bar chart of severity levels
@@ -43,8 +44,9 @@ severity_counts.png → bar chart of severity levels
 severity_pie.png → pie chart of severity distribution
 
 top_processes.png → top processes causing issues
-
+```
 #### 📊 Sample Output
+
 **Example Flagged Logs (CSV)**
 timestamp           | host     | process   | severity | message
 2025-08-12 10:15:22 | myhost   | kernel    | ERROR    | Disk failure detected
