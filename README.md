@@ -2,8 +2,6 @@
 
 A Python-based tool to analyze Linux system logs, flag anomalies (ERROR, WARNING, FAILED), and generate useful reports with charts.  
 
----
-
 ## 🚀 Features  
 - Parse `/var/log/syslog` for anomalies  
 - Identify severity levels (Error, Warning, Failed)  
@@ -32,11 +30,11 @@ SystemLogAnalyzer/
 ```bash
 git clone https://github.com/Saileela145/SystemLogAnalyzer.git
 cd SystemLogAnalyzer
-
+```
 2. **Run the Script**
 ```
 python3 log_flagger.py
-
+```
 3. **Check Outputs**
 flagged_logs.csv → contains flagged anomalies
 
@@ -45,8 +43,6 @@ severity_counts.png → bar chart of severity levels
 severity_pie.png → pie chart of severity distribution
 
 top_processes.png → top processes causing issues
-
-issues
 
 #### 📊 Sample Output
 **Example Flagged Logs (CSV)**
@@ -84,18 +80,4 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 
 This project is licensed under the MIT License.
 
----
 
-
----
-
-👉 This way your README **automatically shows images** when someone opens the repo (as long as the `.png` files are inside the same folder).  
-
-Do you want me to also add a **sample screenshot of flagged_logs.csv (table)** in the README for extra clarity, or keep only charts?
-
-
-
-
-
-
- 
