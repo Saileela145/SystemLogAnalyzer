@@ -35,4 +35,88 @@ def parse_logs(log_file):
                 if severity:
                     logs.append([timestamp, host, process, message, severity])
 
-    return pd.DataFrame(log
+    return pd.DataFrame(logs, columns=["timestamp", "host", "process", "message", "severity"])
+
+
+def filter_logs(df, process=None, severity=None):
+    if process:
+        df = df[df["process"].str.contains(process, case=False, regex=False)]
+    if severity:
+        df = df[df["severity"].str.upper() == severity.upper()]
+    return df
+
+
+def visualize_data(df):
+    if df.empty:
+        print("⚠️ No issues found, nothing to visualize.")
+        return
+
+    os.makedirs("logs", exist_ok=True)
+
+    # 1. Bar chart - Severity counts
+    severity_counts = df["severity"].value_counts()
+    plt.figure(figsize=(6, 4))
+    severity_counts.plot(kind="bar", color=["orange", "red", "purple"])
+    plt.title("Log Issues by Severity")
+    plt.xlabel("Severity")
+    plt.ylabel("Count")
+    plt.xticks(rotation=0)
+    plt.tight_layout()
+    plt.savefig("logs/severity_counts.png")
+    plt.close()
+
+    # 2. Bar chart - Top processes
+    top_processes = df["process"].value_counts().head(5)
+    plt.figure(figsize=(6, 4))
+    top_processes.plot(kind="bar", color="blue")
+    plt.title("Top 5 Processes with Issues")
+    plt.xlabel("Process")
+    plt.ylabel("Count")
+    plt.xticks(rotation=45, ha="right")
+    plt.tight_layout()
+    plt.savefig("logs/top_processes.png")
+    plt.close()
+
+    # 3. Pie chart - Severity distribution
+    plt.figure(figsize=(5, 5))
+    severity_counts.plot(kind="pie", autopct="%1.1f%%", startangle=90,
+                         colors=["orange", "red", "purple"])
+    plt.title("Severity Distribution")
+    plt.ylabel("")
+    plt.tight_layout()
+    plt.savefig("logs/severity_pie.png")
+    plt.close()
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Log Analyzer with CLI filtering")
+    parser.add_argument("--process", help="Filter logs by process name")
+    parser.add_argument("--severity", help="Filter logs by severity (ERROR, WARNING, FAILED)")
+    parser.add_argument("--top", type=int, default=5, help="Number of top processes to display")
+    args = parser.parse_args()
+
+    os.makedirs("logs", exist_ok=True)
+
+    df = parse_logs(log_file)
+    df = filter_logs(df, args.process, args.severity)
+
+    df.to_csv("logs/flagged_logs.csv", index=False)
+    print("✅ Log analysis complete. Results saved to logs/flagged_logs.csv")
+
+    if not df.empty:
+        print("\n📊 Summary of Issues:")
+        for sev, count in df["severity"].value_counts().items():
+            print(f"{sev}: {count}")
+
+        print(f"\n🔥 Top {args.top} Processes with Issues:")
+        for proc, count in df["process"].value_counts().head(args.top).items():
+            print(f"{proc}: {count}")
+
+        visualize_data(df)
+        print("\n📈 Charts saved inside logs/ folder.")
+    else:
+        print("⚠️ No issues found for the given filters.")
+
+
+if __name__ == "__main__":
+    main()
