@@ -14,11 +14,13 @@ networkd-dispatcher[878]: 1
 ✅ Log analysis complete. Results saved to logs/flagged_logs.csv
 
 📊 Summary of Issues:
-WARNING: 2
+WARNING: 4
+ERROR: 1
 
 🔥 Top 5 Processes with Issues:
+python3[913]: 3
 kernel: 1
-networkd-dispatcher[859]: 1
+networkd-dispatcher[877]: 1
 
 📈 Charts saved inside logs/ folder.
-- Daily SystemLogAnalyzer run completed on Wed Feb 11 16:17:54 UTC 2026
+- Daily SystemLogAnalyzer run completed on Wed Feb 11 16:18:06 UTC 2026

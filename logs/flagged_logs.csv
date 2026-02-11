@@ -1,3 +1,6 @@
 timestamp,host,process,message,severity
-2026-02-11T16:17:24.301221+00:00,runnervmwffz4,kernel,Speculative Return Stack Overflow: WARNING: See https://kernel.org/doc/html/latest/admin-guide/hw-vuln/srso.html for mitigation options.,WARNING
-2026-02-11T16:17:25.134110+00:00,runnervmwffz4,networkd-dispatcher[859],"WARNING:Unknown index 3 seen, reloading interface list",WARNING
+2026-02-11T16:17:23.683067+00:00,runnervmwffz4,kernel,Speculative Return Stack Overflow: WARNING: See https://kernel.org/doc/html/latest/admin-guide/hw-vuln/srso.html for mitigation options.,WARNING
+2026-02-11T16:17:24.636658+00:00,runnervmwffz4,networkd-dispatcher[877],"WARNING:Unknown index 3 seen, reloading interface list",WARNING
+2026-02-11T16:17:35.200033+00:00,runnervmwffz4,python3[913],"2026-02-11T16:17:35.199979Z WARNING Daemon Daemon VM is provisioned, but the VM unique identifier has changed. This indicates the VM may be created from an image that was not properly deprovisioned or generalized, which can result in unexpected behavior from the guest agent -- clearing cached state",WARNING
+2026-02-11T16:17:35.200137+00:00,runnervmwffz4,python3[913],"2026-02-11T16:17:35.200075Z ERROR Daemon Daemon Event: name=WALinuxAgent, op=Provision, message=VM is provisioned, but the VM unique identifier has changed. This indicates the VM may be created from an image that was not properly deprovisioned or generalized, which can result in unexpected behavior from the guest agent -- clearing cached state, duration=0",ERROR
+2026-02-11T16:17:35.205270+00:00,runnervmwffz4,python3[913],WARNING! Cached DHCP leases will be deleted.,WARNING
