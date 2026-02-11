@@ -37,10 +37,17 @@ jobs:
         git config --global user.name "github-actions"
         git config --global user.email "actions@github.com"
     
-        git pull origin main --rebase
+        # Make sure branch is up to date
+        git fetch origin
+        git checkout main
+        git reset --hard origin/main
     
+        # Add updated logs
         git add logs/
-        git commit -m "Daily SystemLogAnalyzer update - $(date)" || echo "Nothing to commit"
     
+        # Commit only if changes exist
+        git diff --cached --quiet || git commit -m "Daily SystemLogAnalyzer update - $(date)"
+    
+        # Push
         git push origin main
-
+    
