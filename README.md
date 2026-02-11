@@ -88,4 +88,46 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 
 This project is licensed under the MIT License.
 
+## ⚙️ How It Works
+
+1. Reads Linux system logs from `/var/log/syslog`
+2. Scans log entries for known severity keywords:
+   - ERROR
+   - WARNING
+   - FAILED
+3. Flags suspicious or critical log entries
+4. Saves flagged logs into a CSV file for review
+5. Generates visual reports:
+   - Severity distribution
+   - Top processes causing issues
+
+## ▶️ How to Run
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Saileela145/SystemLogAnalyzer.git
+   cd SystemLogAnalyzer
+   ```
+2.Run the script
+```
+python3 log_flagger.py
+```
+
+Add this section near the bottom:
+
+```markdown
+## 🧠 Real-World Use Case
+
+System administrators can use this tool to:
+- Quickly identify critical system issues
+- Monitor recurring warnings and failures
+- Analyze system health during outages
+- Support incident investigation and root cause analysis
+
+This tool can be integrated into:
+- Cron jobs
+- Monitoring pipelines
+- DevOps alerting workflows
+   
+
 
