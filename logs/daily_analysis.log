@@ -11,3 +11,14 @@ networkd-dispatcher[878]: 1
 
 📈 Charts saved inside logs/ folder.
 - Daily SystemLogAnalyzer run completed on Wed Feb 11 15:58:06 UTC 2026
+✅ Log analysis complete. Results saved to logs/flagged_logs.csv
+
+📊 Summary of Issues:
+WARNING: 2
+
+🔥 Top 5 Processes with Issues:
+kernel: 1
+networkd-dispatcher[859]: 1
+
+📈 Charts saved inside logs/ folder.
+- Daily SystemLogAnalyzer run completed on Wed Feb 11 16:17:54 UTC 2026
